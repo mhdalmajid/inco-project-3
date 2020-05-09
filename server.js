@@ -1,19 +1,22 @@
-const express = require('express')
+const http = require('http')
+const path = require('path')
 
-const server =express();
+const livereload = require('livereload')
 
+const app = require('./src/app.js')
+const onError = require('./src/utils/serverOn.js')
+const liveReloadInit = require('./src/utils/livereload.js')
 
-server.post('/new',function(request,res){
-    
+const server = http.createServer(app)
+liveReloadInit(app, server, path, livereload) // development purpose only
 
-    res.send(request.body.username)
+server.on('error', (err) => {
+  onError(err, app)
 })
-
-
-
-
-
-
-server.listen(3000, ()=>{
-    console.log("server running on http://localhost:3000");
+server.on('listening', () => {
+  let addr = server.address()
+  let bind =
+    typeof addr === 'string' ? `pipe ${addr}` : `http://localhost:${addr.port}`
+  console.log(`Server Listening on ${bind}`)
 })
+server.listen(app.get('port'))

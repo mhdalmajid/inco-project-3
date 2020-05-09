@@ -1,0 +1,9 @@
+body {
+  background-color: rgb(233, 233, 233);
+}
+h1,
+h2,
+pre {
+  text-align: center;
+  color: #85093d;
+}
