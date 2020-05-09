@@ -4,7 +4,7 @@ const path = require('path')
 const livereload = require('livereload')
 
 const app = require('./src/app.js')
-const onError = require('./src/utils/serverOn.js')
+const onError = require('./src/utils/serverOnError.js')
 const liveReloadInit = require('./src/utils/livereload.js')
 
 const server = http.createServer(app)
