@@ -1,9 +1,22 @@
 body {
-  background-color: rgb(233, 233, 233);
+  background: #ffffff;
 }
-h1,
-h2,
+.page-wrap {
+  min-height: 100vh;
+}
 pre {
   text-align: center;
-  color: #85093d;
+  font-size: 1.4rem;
+}
+.actions {
+  width: 400px;
+  margin: 100px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.table_container {
+  width: 80%;
+  margin: 50px auto;
 }

@@ -13,7 +13,6 @@ const liveReload = (app, server, path, livereload) => {
     // debug: true,
     exts: ['pug', 'html', 'css', 'png', 'gif', 'jpg'],
   })
-  console.log(path.resolve(__dirname, '../../public'))
   livereloadServer.watch(path.resolve(__dirname, '../../public'))
   livereloadServer.server.once('connection', () => {
     setTimeout(() => {
